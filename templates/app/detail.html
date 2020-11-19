@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{#{% load bootstrap4 %}       {# import bootstrap4/bootstrap3 #}
+{#{% bootstrap_css %}         {# Embed Bootstrap CSS #}
+{#{% bootstrap_javascript jquery='full' %}  {# Embed Bootstrap JS+jQuery #}
+{#{{ form.media }}            {# Adds date-picker required JS and CSS #}
+{% load is_subscribed %}
+{% block content %}
+
+
+    <main class="mt-5 pt-4">
+        <div class="container dark-grey-text mt-5">
+
+            <!--Grid row-->
+            <div class="row wow fadeIn">
+
+                <!--Grid column-->
+                <div class="col-md-6 mb-4">
+
+                    <img src="/media/{{ topic.image }}" class="detail-page-cover" alt="no image"/>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-6 mb-4">
+
+                    <!--Content-->
+                    <div class="p-4">
+
+                        {#                        <div class="mb-3">#}
+                        {#                            <a href="{% url 'app:category-home' category=topic.category %}">#}
+                        {#                                <span class="badge purple mr-1">{{ topic.get_category_display }}</span>#}
+                        {#                            </a>#}
+                        {#                        </div>#}
+
+                        <h1 class="jumbotron-fluid mt-5">{{ topic.name }}</h1>
+                        <p class="lead font-weight-bold">Description</p>
+
+                        <p>{{ topic.description }}</p>
+
+
+                        {% is_subscribed user topic as is_subscribed %}
+                        {% if  is_subscribed %}
+                            <a href="{{ topic.unsubscribe }}" class="btn btn-danger btn-md my-0 p">
+                                Unsubscribe
+                                <i class="fas fa-shopping-cart ml-1"></i>
+                            </a>
+                        {% else %}
+                            {#                            <a href="{{ topic.book }}" class="btn btn-primary btn-md my-0 p">#}
+                            <a href="{{ topic.subscribe }}" class="btn btn-primary btn-md my-0 p">
+                                Subscribe
+                                <i class="fas fa-shopping-cart ml-1"></i>
+                            </a>
+                        {% endif %}
+
+
+                    </div>
+                    <!--Content-->
+
+                </div>
+                <!--Grid column-->
+
+            </div>
+            <!--Grid row-->
+
+            <hr>
+
+            <!--Grid row-->
+            <div class="row d-flex justify-content-center wow fadeIn">
+
+                <!--Grid column-->
+{#                <div class="col-md-6 text-center">#}
+{##}
+{#                    <h4 class="my-4 h4">Handyman</h4>#}
+                    {#                    <p class="text-decoration-none">#}
+                    {#                        <a href="{% url 'mapp:portfolio' id=topic.handyman_id %}">#}
+                    {#                            <span>#}
+                    {#                            {{ topic.handyman.get_cache_name }}</span>#}
+                    {#                        </a>#}
+                    {#                    </p>#}
+{#                </div>#}
+{#                <!--Grid column-->#}
+
+            </div>
+            <!--Grid row-->
+
+            {#      <!--Grid row-->#}
+            {#      <div class="row wow fadeIn">#}
+            {##}
+            {#        <!--Grid column-->#}
+            {#        <div class="col-lg-4 col-md-12 mb-4">#}
+            {##}
+            {#          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg" class="img-fluid" alt="">#}
+            {##}
+            {#        </div>#}
+            {#        <!--Grid column-->#}
+            {##}
+            {#        <!--Grid column-->#}
+            {#        <div class="col-lg-4 col-md-6 mb-4">#}
+            {##}
+            {#          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid" alt="">#}
+            {##}
+            {#        </div>#}
+            {#        <!--Grid column-->#}
+            {##}
+            {#        <!--Grid column-->#}
+            {#        <div class="col-lg-4 col-md-6 mb-4">#}
+            {##}
+            {#          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" class="img-fluid" alt="">#}
+            {##}
+            {#        </div>#}
+            {#        <!--Grid column-->#}
+            {##}
+            {#      </div>#}
+            <!--Grid row-->
+
+        </div>
+    </main>
+
+{% endblock content %}

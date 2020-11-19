@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 from pathlib import Path
 import os
-import django_heroku
+# import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # from app.templatetags import is_subscribed
 
@@ -29,11 +29,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
 
-    'https://edutech-demo.herokuapp.com/',
+    # 'https://edutech-demo.herokuapp.com/',
     '127.0.0.1'
 ]
 
-DISABLE_COLLECTSTATIC=1
+# DISABLE_COLLECTSTATIC=1
 # Application definition
 
 INSTALLED_APPS = [
@@ -125,15 +125,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+# ]
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 
 # Activate Django-Heroku.
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
 
 # #  Add configuration for static files storage using whitenoise
 # STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
